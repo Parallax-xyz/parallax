@@ -150,7 +150,20 @@ export class PrivateBalance {
       .send()
       .then((r) => BigInt(r.value.amount))
       .catch(() => 0n); // no USDC account yet
-    return { privateUsdc: w.balance(this.mint("USDC")).amount, privateSol: w.balance(this.mint("SOL")).amount, depositUsdc, depositSol };
+    return { privateUsdc: this.held(w, "USDC"), privateSol: this.held(w, "SOL"), depositUsdc, depositSol };
+  }
+
+  /**
+   * What the private balance holds of one asset. The SDK learns a mint only from the wallet's own history, so a fresh
+   * balance (nothing deposited yet) answers TRANSACTION_UNKNOWN_MINT: that is an empty balance, not an error.
+   */
+  private held(w: { balance(mint: never): { amount: bigint } }, asset: PrivateAsset): bigint {
+    try {
+      return w.balance(this.mint(asset) as never).amount;
+    } catch (e) {
+      if ((e as { code?: string })?.code === "TRANSACTION_UNKNOWN_MINT") return 0n;
+      throw e;
+    }
   }
 
   private async sendKit(tx: Parameters<typeof import("@solana/kit")["signTransactionWithSigners"]>[1], signers: import("@solana/kit").KeyPairSigner[]) {
@@ -180,7 +193,7 @@ export class PrivateBalance {
   async withdraw(asset: PrivateAsset, amount: bigint, recipient: string): Promise<string> {
     if (amount <= 0n) throw new Error("Nothing to withdraw.");
     const { w, keys } = await this.wallet();
-    const have = w.balance(this.mint(asset)).amount;
+    const have = this.held(w, asset);
     if (have < amount) throw new Error(`The private balance holds less than that (${fmt(asset, have)}).`);
     const tx = await this.sdk.buildWithdrawalTransaction({
       client: this.client,
