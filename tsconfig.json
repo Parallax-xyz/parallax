@@ -1,0 +1,26 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/strategy"
+    },
+    {
+      "path": "packages/indicators"
+    },
+    {
+      "path": "packages/exchange"
+    },
+    {
+      "path": "packages/risk"
+    },
+    {
+      "path": "packages/runner"
+    },
+    {
+      "path": "packages/solana"
+    },
+    {
+      "path": "packages/privacy"
+    }
+  ]
+}

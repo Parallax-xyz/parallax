@@ -1,0 +1,39 @@
+{
+  "name": "@parallax/strategy",
+  "version": "0.1.0",
+  "description": "Strategy spec schema, validation, canonical spec hashing, built-in presets, agent modes and display units.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parallax-xyz/parallax.git",
+    "directory": "packages/strategy"
+  },
+  "homepage": "https://parallaxtrade.xyz",
+  "bugs": {
+    "url": "https://github.com/Parallax-xyz/parallax/issues"
+  },
+  "dependencies": {
+    "@noble/hashes": "^1.8.0",
+    "zod": "^4.6.7"
+  }
+}

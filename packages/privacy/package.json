@@ -1,0 +1,47 @@
+{
+  "name": "@parallax/privacy",
+  "version": "0.1.0",
+  "description": "Private mode: profit sweeps into the owner's private balance (Solana Privacy Rings), the browser private-balance client, and public-view scrubbing.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.ts",
+      "default": "./dist/browser.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parallax-xyz/parallax.git",
+    "directory": "packages/privacy"
+  },
+  "homepage": "https://parallaxtrade.xyz",
+  "bugs": {
+    "url": "https://github.com/Parallax-xyz/parallax/issues"
+  },
+  "dependencies": {
+    "@heliuslabs/spr": "0.9.0-alpha",
+    "@parallax/runner": "0.1.0",
+    "@parallax/solana": "0.1.0",
+    "@solana/kit": "8.6.0",
+    "@solana/web3.js": "1.98.4",
+    "buffer": "^6.0.3"
+  }
+}

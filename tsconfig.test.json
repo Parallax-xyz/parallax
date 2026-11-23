@@ -1,0 +1,46 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "noEmit": true,
+    "module": "Preserve",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2023",
+      "DOM"
+    ],
+    "paths": {
+      "@parallax/strategy": [
+        "./packages/strategy/src/index.ts"
+      ],
+      "@parallax/indicators": [
+        "./packages/indicators/src/index.ts"
+      ],
+      "@parallax/exchange": [
+        "./packages/exchange/src/index.ts"
+      ],
+      "@parallax/risk": [
+        "./packages/risk/src/index.ts"
+      ],
+      "@parallax/runner": [
+        "./packages/runner/src/index.ts"
+      ],
+      "@parallax/solana": [
+        "./packages/solana/src/index.ts"
+      ],
+      "@parallax/privacy": [
+        "./packages/privacy/src/index.ts"
+      ],
+      "@parallax/privacy/browser": [
+        "./packages/privacy/src/browser.ts"
+      ]
+    }
+  },
+  "include": [
+    "packages/*/src",
+    "packages/*/test",
+    "vitest.config.ts"
+  ]
+}

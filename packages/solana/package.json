@@ -1,0 +1,43 @@
+{
+  "name": "@parallax/solana",
+  "version": "0.1.0",
+  "description": "Solana venue for agents: Jupiter swaps with worst-price checks, Jito + RPC landing, majors, tokenized stocks and safe trending tokens, per-agent wallets, withdraw-to-owner, Privacy Rings deposits.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parallax-xyz/parallax.git",
+    "directory": "packages/solana"
+  },
+  "homepage": "https://parallaxtrade.xyz",
+  "bugs": {
+    "url": "https://github.com/Parallax-xyz/parallax/issues"
+  },
+  "dependencies": {
+    "@heliuslabs/spr": "0.9.0-alpha",
+    "@parallax/exchange": "0.1.0",
+    "@parallax/strategy": "0.1.0",
+    "@solana/kit": "8.6.0",
+    "@solana/web3.js": "1.98.4",
+    "bs58": "^6.0.0"
+  }
+}

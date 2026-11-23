@@ -1,0 +1,41 @@
+{
+  "name": "parallax",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Parallax core: AI trading agents on Solana (strategy, risk engine, agent loop, Jupiter + Jito trading, per-agent wallets) and Private mode.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parallax-xyz/parallax.git"
+  },
+  "homepage": "https://parallaxtrade.xyz",
+  "type": "module",
+  "workspaces": [
+    "packages/strategy",
+    "packages/indicators",
+    "packages/exchange",
+    "packages/risk",
+    "packages/runner",
+    "packages/solana",
+    "packages/privacy"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "examples": "node examples/validate-spec.mjs && node examples/risk-engine.mjs && node examples/paper-agent.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.6",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}

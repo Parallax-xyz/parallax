@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+*.log
+.DS_Store
+
+# never commit secrets or local data
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.db
+*-keypair.json
